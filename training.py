@@ -6,9 +6,7 @@ from nltk.tokenize import word_tokenize
 from pyspark.mllib.feature import HashingTF, IDF
 from pyspark.mllib.regression import LabeledPoint
 from pyspark.mllib.classification import NaiveBayes, NaiveBayesModel
-#from pyspark.mllib.classification import LogisticRegressionWithLBFGS, LogisticRegressionModel
-#from pyspark.mllib.classification import SVMWithSGD, SVMModel
-#from pyspark.mllib.tree import DecisionTree, DecisionTreeModel
+
 
 conf = SparkConf()
 conf.setAppName("SentimentAnalysis")
@@ -36,7 +34,7 @@ def wc(data):
 		if w[1][0] in allowed:
 			all_words.append(w[0].lower())
 	return all_words
-
+z
 raw_data = sc.parallelize(documents)
 raw_tokenized = raw_data.map(lambda dic : {"text": wc(dic["text"]) , "label" : dic["label"]})
 
